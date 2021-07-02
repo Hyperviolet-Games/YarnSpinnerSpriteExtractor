@@ -39,4 +39,4 @@ for key in sorted(sprites):
         print(f"- [ ] {val}" + (f" ({sprites[key][val]})" if sprites[key][val] > 1 else ""))
     print("\n")
 
-print(f"Total sprites needed: {sum([sprites[k][v] for k in sprites for v in sprites[k]])}")
+print(f"Total sprites needed: {sum([len(sprites[k]) for k in sprites])}")
