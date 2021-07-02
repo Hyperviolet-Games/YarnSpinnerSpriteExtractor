@@ -25,15 +25,18 @@ for file in files:
                 expression = match.group(2)
 
                 if sprite not in sprites:
-                    sprites[sprite] = []
+                    sprites[sprite] = {}
 
                 if expression not in sprites[sprite]:
-                    sprites[sprite].append(expression)
+                    sprites[sprite][expression] = 0
+                sprites[sprite][expression] += 1
 
 
 for key in sorted(sprites):
     print(f"Sprites needed for {key}:")
     print()
     for val in sprites[key]:
-        print(f"- [ ] {val}")
+        print(f"- [ ] {val}" + (f" ({sprites[key][val]})" if sprites[key][val] > 1 else ""))
     print("\n")
+
+print(f"Total sprites needed: {sum([sprites[k][v] for k in sprites for v in sprites[k]])}")
