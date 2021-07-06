@@ -34,6 +34,6 @@ for file in files:
 for key in sorted(sprites):
     print(f"Sprites needed for {key}:")
     print()
-    for val in sprites[key]:
+    for val in sorted(sprites[key]):
         print(f"- [ ] {val}")
     print("\n")
